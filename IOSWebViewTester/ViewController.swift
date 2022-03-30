@@ -44,12 +44,11 @@ class ViewController: UIViewController {
             if let vc = segue.destination as? ReceiveViewController {
                 if textInputBox.hasText {
                     let urlString = textInputBox.text!
-                    guard let url = URL(string: urlString) else { return }
-                    vc.url = url
-                }
-                else {
-                    guard let url = URL(string: "https://www.thisworldthesedays.com/example-page.html") else { return }
-                    vc.url = url
+                    let validUrl = validateUrl(urlString: urlString)
+                    print("valid url: ", validUrl)
+                    if validUrl {
+                        vc.urlString = urlString
+                    }
                 }
             }
         }
