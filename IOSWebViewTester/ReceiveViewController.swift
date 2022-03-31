@@ -13,56 +13,75 @@ enum Result <T> {
     case Success(Data)
     case Error(Error)
 }
-class ReceiveViewController: UIViewController, WKNavigationDelegate, URLSessionDelegate {
+class ReceiveViewController: UIViewController, WKNavigationDelegate, URLSessionDelegate, WKUIDelegate, UISearchControllerDelegate {
     
     @IBOutlet weak var webView: WKWebView!
     var urlString: String?
-        
+    
+    var webViewObserver: NSKeyValueObservation?
+
+    @IBOutlet weak var navItem: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
 
-        guard let url = URL(string: urlString!) else {return}
-        let request = URLRequest(url: url)
-        webView.navigationDelegate = self
-        webView.load(request)
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.toolbar.isHidden = false
+
+        if let urlString = urlString {
+            guard let url = URL(string: urlString) else {return}
+            let request = URLRequest(url: url)
+            webView.navigationDelegate = self
+            webView.allowsBackForwardNavigationGestures = true
+            webViewObserver = webView?.observe(\.url, options: .new, changeHandler: {
+                (webView, _) in
+                guard let url = webView.url else {return}
+                print("webViewObserver: ", url)
+//                DispatchQueue.main.async {
+//                    self.navigationItem.title = url.absoluteString
+//                }
+
+            })
+            webView.load(request)
+        }
+
     }
     
-    func loadWebRequest(path: String, completion: @escaping (Result<[Data]>) -> Void) {
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config, delegate: URLSessionPinningDelegate(), delegateQueue: OperationQueue.main)
-        
-        guard let url = URL (string: urlString ?? "https://www.thisworldthesedays.com/example-page.html") else {return}
-        
-        let task = session.dataTask(with: url) { responseBody, response, error in
-            guard error == nil else {
-                print(error!.localizedDescription)
-                completion(.Error(error!))
-                return
-            }
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                print(httpResponse.statusCode)
-                if (200...299).contains(httpResponse.statusCode) {
-                    guard let data = responseBody else {
-                        print("no data")
-                        return
-                    }
-                    OperationQueue.main.addOperation {
-                        completion(.Success(data))
-                    }
-                }
-            }
-        }
-        task.resume()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        webViewObserver?.invalidate()
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.toolbar.isHidden = true
     }
+    
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print("decidePolicyFor navigationAction: ")
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("did finish navigation")
+        if navigationAction.navigationType == .linkActivated {
+            guard let url = navigationAction.request.url else {return}
+            webView.load(URLRequest(url: url))
+        }
+        decisionHandler(.allow)
+    }
+    
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        print("createWebViewWith")
+        if navigationAction.targetFrame == nil || navigationAction.targetFrame?.isMainFrame == false {
+            if let navUrl = navigationAction.request.url {
+                print("navigation url: ", navUrl)
+
+            }
+            webView.load(navigationAction.request)
+        }
+        return nil
     }
 
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        print("Start load")
+        print("webView didStartProvisionalNavigation")
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("webView didFinish navigation")
     }
     
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
@@ -98,7 +117,7 @@ class ReceiveViewController: UIViewController, WKNavigationDelegate, URLSessionD
         let bundleCert = Certificates.localhost
         let serverCert = SecTrustGetCertificateAtIndex(of, 0)
 
-        let bundleCertData = SecCertificateCopyData(bundleCert as! SecCertificate) as NSData
+        let bundleCertData = SecCertificateCopyData(bundleCert ) as NSData
         let serverCertData = SecCertificateCopyData(serverCert!) as NSData
 
         if !serverCertData.isEqual(to: bundleCertData as Data) {

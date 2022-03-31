@@ -15,8 +15,8 @@
 		7FE337B527EEC2AA0053FBD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE337B327EEC2AA0053FBD2 /* Main.storyboard */; };
 		7FE337BA27EEC2AD0053FBD2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FE337B927EEC2AD0053FBD2 /* Assets.xcassets */; };
 		7FE337BD27EEC2AD0053FBD2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE337BB27EEC2AD0053FBD2 /* LaunchScreen.storyboard */; };
-		E4563E4A27F4A06E00928D64 /* localhost.der in Resources */ = {isa = PBXBuildFile; fileRef = E4563E4927F4A06E00928D64 /* localhost.der */; };
 		E4563E4C27F4A19300928D64 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E4563E4B27F4A19300928D64 /* README.md */; };
+		E4563E5027F5C60700928D64 /* localhost.der in Resources */ = {isa = PBXBuildFile; fileRef = E4563E4F27F5C60700928D64 /* localhost.der */; };
 		E4EC6F2D27F43C220031854E /* URLSessionPinningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EC6F2C27F43C210031854E /* URLSessionPinningDelegate.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +31,8 @@
 		7FE337B927EEC2AD0053FBD2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FE337BC27EEC2AD0053FBD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FE337BE27EEC2AD0053FBD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4563E4927F4A06E00928D64 /* localhost.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = localhost.der; sourceTree = "<group>"; };
 		E4563E4B27F4A19300928D64 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E4563E4F27F5C60700928D64 /* localhost.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = localhost.der; sourceTree = "<group>"; };
 		E4EC6F2027F31B020031854E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E4EC6F2527F31BF10031854E /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
 		E4EC6F2C27F43C210031854E /* URLSessionPinningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionPinningDelegate.swift; sourceTree = "<group>"; };
@@ -82,8 +82,8 @@
 				7F6FD6F627F1D82600298F2C /* utils */,
 				7FE337AD27EEC2AA0053FBD2 /* AppDelegate.swift */,
 				7FE337AF27EEC2AA0053FBD2 /* SceneDelegate.swift */,
+				E4563E4F27F5C60700928D64 /* localhost.der */,
 				7FE337B127EEC2AA0053FBD2 /* ViewController.swift */,
-				E4563E4927F4A06E00928D64 /* localhost.der */,
 				7F6FD6B327F0962C00298F2C /* ReceiveViewController.swift */,
 				7FE337B327EEC2AA0053FBD2 /* Main.storyboard */,
 				7FE337B927EEC2AD0053FBD2 /* Assets.xcassets */,
@@ -162,8 +162,8 @@
 			files = (
 				7FE337BD27EEC2AD0053FBD2 /* LaunchScreen.storyboard in Resources */,
 				7FE337BA27EEC2AD0053FBD2 /* Assets.xcassets in Resources */,
+				E4563E5027F5C60700928D64 /* localhost.der in Resources */,
 				E4563E4C27F4A19300928D64 /* README.md in Resources */,
-				E4563E4A27F4A06E00928D64 /* localhost.der in Resources */,
 				7FE337B527EEC2AA0053FBD2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,7 +330,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = IOSWebViewTester/IOSWebViewTester.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.3.1;
 				DEVELOPMENT_TEAM = 7PY58KJ7Y2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IOSWebViewTester/Info.plist;
@@ -360,7 +360,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = IOSWebViewTester/IOSWebViewTester.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.3;
+				CURRENT_PROJECT_VERSION = 1.3.1;
 				DEVELOPMENT_TEAM = 7PY58KJ7Y2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IOSWebViewTester/Info.plist;
