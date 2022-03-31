@@ -61,6 +61,7 @@
 		7FE337A127EEC2AA0053FBD2 = {
 			isa = PBXGroup;
 			children = (
+				E4563E4B27F4A19300928D64 /* README.md */,
 				7FE337AC27EEC2AA0053FBD2 /* IOSWebViewTester */,
 				7FE337AB27EEC2AA0053FBD2 /* Products */,
 				E4EC6F1F27F31B010031854E /* Frameworks */,
@@ -83,7 +84,6 @@
 				7FE337AF27EEC2AA0053FBD2 /* SceneDelegate.swift */,
 				7FE337B127EEC2AA0053FBD2 /* ViewController.swift */,
 				E4563E4927F4A06E00928D64 /* localhost.der */,
-				E4563E4B27F4A19300928D64 /* README.md */,
 				7F6FD6B327F0962C00298F2C /* ReceiveViewController.swift */,
 				7FE337B327EEC2AA0053FBD2 /* Main.storyboard */,
 				7FE337B927EEC2AD0053FBD2 /* Assets.xcassets */,
