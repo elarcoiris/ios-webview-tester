@@ -45,4 +45,4 @@ const https = require('https')
       })
     }
 ```
-- From this point on, you will need to access localhost via https://localhost:3333 
+- From this point on, you will need to access localhost via https://localhost:3333 on simulator and https://192.168.0.1:3333 etc on device for local development
