@@ -7,15 +7,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var webViewButton: UIButton!
     @IBOutlet weak var textInputBox: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.toolbar.isHidden = true
+        textInputBox.delegate = self
         initWebView()
         initTextInput()
+
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
     }
     
     func initWebView () {
@@ -28,15 +34,26 @@ class ViewController: UIViewController {
     
     func initTextInput() {
         textInputBox?.layer.shadowColor = UIColor.gray.cgColor
-        textInputBox?.layer.shadowOffset = CGSize(width: 1, height: 2)
-        textInputBox?.layer.shadowOpacity = 0.10
+        textInputBox?.layer.shadowOffset = CGSize(width: 1, height: 1)
+        textInputBox?.layer.shadowOpacity = 0.25
         textInputBox?.layer.shadowRadius = 0
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func textInput(_ sender: UITextField) {
     }
     
     @IBAction func webViewButton(_ sender: UIButton) {
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == textInputBox {
+            textField.resignFirstResponder()
+        }
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

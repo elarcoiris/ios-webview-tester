@@ -11,56 +11,59 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IOSWebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="BYZ-38-t0r" customClass="ViewController" customModule="IOSWebViewTester" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://192.168.0.5:3000" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UDL-I7-2le">
+                                <rect key="frame" x="20" y="157" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" enablesReturnKeyAutomatically="YES" smartInsertDeleteType="yes" textContentType="url"/>
+                                <connections>
+                                    <action selector="textInput:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="cpp-cR-DqM"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test URL:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3s5-Tx-BW5">
+                                <rect key="frame" x="20" y="126" width="374" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" systemColor="systemGray5Color"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBl-Xn-Wfa">
-                                <rect key="frame" x="142" y="393.5" width="130" height="163"/>
+                                <rect key="frame" x="115" y="228" width="184" height="52"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="KXi-5q-GK2"/>
-                                    <constraint firstAttribute="height" constant="163" id="U9o-Nv-wOD"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="52" id="KXi-5q-GK2"/>
+                                    <constraint firstAttribute="height" constant="52" id="U9o-Nv-wOD"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="aVW-0X-ITv"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Webview"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Open WebView with URL"/>
                                 <connections>
                                     <action selector="webViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bfv-Rg-RCg"/>
                                     <segue destination="uSx-M9-5Gc" kind="show" identifier="webViewSegue" id="Pi6-at-FlM"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="UDL-I7-2le">
-                                <rect key="frame" x="20" y="201" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="url"/>
-                                <connections>
-                                    <action selector="textInput:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="cpp-cR-DqM"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter URL for testing:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3s5-Tx-BW5">
-                                <rect key="frame" x="20" y="175.5" width="374" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="UDL-I7-2le" firstAttribute="top" secondItem="3s5-Tx-BW5" secondAttribute="bottom" constant="7.5" id="82T-F1-7eS"/>
+                            <constraint firstItem="UDL-I7-2le" firstAttribute="top" secondItem="3s5-Tx-BW5" secondAttribute="bottom" constant="12" id="82T-F1-7eS"/>
                             <constraint firstItem="UDL-I7-2le" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="113" id="8AN-oy-tVa"/>
                             <constraint firstItem="UDL-I7-2le" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9TL-4d-Zr7"/>
                             <constraint firstItem="3s5-Tx-BW5" firstAttribute="trailing" secondItem="UDL-I7-2le" secondAttribute="trailing" id="QIC-aF-pag"/>
                             <constraint firstItem="UDL-I7-2le" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QrQ-66-cLL"/>
                             <constraint firstItem="UBl-Xn-Wfa" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="fyR-2S-n66"/>
-                            <constraint firstItem="UBl-Xn-Wfa" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="oCy-jw-qj3"/>
+                            <constraint firstItem="UBl-Xn-Wfa" firstAttribute="top" secondItem="UDL-I7-2le" secondAttribute="bottom" constant="37" id="nAD-g5-hmJ"/>
                             <constraint firstItem="3s5-Tx-BW5" firstAttribute="leading" secondItem="UDL-I7-2le" secondAttribute="leading" id="r5d-KR-MOs"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eZW-mU-neF"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="textInputBox" destination="UDL-I7-2le" id="xsi-AC-3Zn"/>
                         <outlet property="webViewButton" destination="UBl-Xn-Wfa" id="FVg-9i-tcG"/>
@@ -73,11 +76,26 @@
         <!--Navigation Controller-->
         <scene sceneID="gn1-Lv-fa7">
             <objects>
-                <navigationController id="cYh-fN-ZCY" sceneMemberID="viewController">
+                <navigationController interfaceStyle="light" toolbarHidden="NO" id="cYh-fN-ZCY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MWd-lG-NSK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="tintColor" systemColor="systemGrayColor"/>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="scrollEdgeAppearance"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OmS-sp-UzX">
+                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="tintColor" systemColor="systemGrayColor"/>
+                        <toolbarAppearance key="standardAppearance"/>
+                        <toolbarAppearance key="scrollEdgeAppearance"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Q2j-Hh-IPp"/>
                     </connections>
@@ -89,13 +107,13 @@
         <!--Receive View Controller-->
         <scene sceneID="suL-eo-EYf">
             <objects>
-                <viewController id="uSx-M9-5Gc" customClass="ReceiveViewController" customModule="IOSWebViewTester" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="uSx-M9-5Gc" customClass="ReceiveViewController" customModule="IOSWebViewTester" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D5x-IS-qrL">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7WF-o0-Ug1">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -112,8 +130,28 @@
                             <constraint firstItem="7WF-o0-Ug1" firstAttribute="leading" secondItem="3NL-Lw-YOC" secondAttribute="leading" id="lgZ-BR-Y6f"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="FcJ-p0-toW">
+                            <color key="tintColor" systemColor="systemGrayColor"/>
+                        </barButtonItem>
+                        <barButtonItem title="Item" image="chevron.backward" catalog="system" id="02V-oK-QSS">
+                            <color key="tintColor" systemColor="systemGrayColor"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="uGk-dg-zmm">
+                            <color key="tintColor" systemColor="systemGrayColor"/>
+                        </barButtonItem>
+                        <barButtonItem title="Item" image="chevron.right" catalog="system" id="egy-4s-wZF">
+                            <color key="tintColor" systemColor="systemGrayColor"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ieF-SG-dU7">
+                            <color key="tintColor" systemColor="systemGrayColor"/>
+                        </barButtonItem>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="aEJ-9H-VIL"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="navItem" destination="aEJ-9H-VIL" id="xQE-bI-xND"/>
                         <outlet property="webView" destination="7WF-o0-Ug1" id="FUO-7A-o52"/>
                     </connections>
                 </viewController>
@@ -123,8 +161,19 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
