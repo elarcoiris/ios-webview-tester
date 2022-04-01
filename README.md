@@ -48,7 +48,8 @@ const https = require('https')
 - From this point on, you will need to access localhost via https://localhost:3333 on simulator and https://192.168.0.1:3333 etc on device for local development
 
 ## Another method if your site uses express, is to capture and redirect the http request to https:
-```app.use(function(req, res, next) {
+```
+app.use(function(req, res, next) {
   const xfp =
   req.headers["X-Forwarded-Proto"] || req.headers["x-forwarded-proto"];
 
