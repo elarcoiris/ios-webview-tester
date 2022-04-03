@@ -4,9 +4,7 @@
 A test harness for developers to view WebView content from an external website, within an iOS app.
 It allows for https on localhost to satisfy iOS App Transport Security settings.
 
-## If your site uses express, capture and redirect the http request to https:
-* If you are running a simulator on the same computer, you can access your server using http:localhost:3000
-* If you are running a device on the same network, you can access your server using http://192.168.0.1
+## If your site uses express, capture and redirect the http request to https. Add this to your app.js file:
 ```
 app.use(function(req, res, next) {
   const xfp =
@@ -20,3 +18,5 @@ app.use(function(req, res, next) {
   }
 });
 ```
+* If you are running a simulator on the same computer, you can access your server using http:localhost:3000
+* If you are running a device on the same network, you can access your server using http://192.168.0.1
