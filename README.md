@@ -3,7 +3,6 @@
 ## Overview
 A test harness for developers to view WebView content from an external website, within an iOS app.
 It allows for https on localhost to satisfy iOS App Transport Security settings.
-You will need to create an SSL certificate on your local server and import this into the iOS project.
 
 ## If your site uses express, capture and redirect the http request to https:
 * If you are running a simulator on the same computer, you can access your server using http:localhost:3000
