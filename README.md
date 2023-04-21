@@ -19,8 +19,8 @@ openssl x509 -in openssl_crt.pem -inform pem -out localhost.der -outform der
 ## Build
 If you're using the latest version of XCode, you will need to navigate to File -> Project Settings -> Advanced and select Legacy for Build Location, then you will be able to build and run the project.
 
-### If your server uses express, you can capture and redirect the http request to https
-Add this to your app.js file:
+## Tips
+If your server uses express, you can redirect the http request to https, by adding this code to your app.js file:
 ```
 app.use(function(req, res, next) {
   const xfp =
