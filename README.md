@@ -1,7 +1,7 @@
 #  iOS Web View Tester
 
 ## Overview
-A test harness for developers to view WebView content from an external website, within an iOS app.
+An interface for developers to view WebView content within an iOS app.
 It allows for https on localhost to satisfy iOS App Transport Security settings.
 
 
